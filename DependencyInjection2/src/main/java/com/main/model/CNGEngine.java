@@ -3,8 +3,7 @@ package com.main.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CNGEngine implements IEngine{
-	
+public class CNGEngine implements IEngine {
 
 	public CNGEngine() {
 		System.out.println("CNGEngine.CNGEngine()");

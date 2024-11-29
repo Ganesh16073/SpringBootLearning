@@ -2,9 +2,9 @@ package com.main.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class DieselEngine implements IEngine{
-	
+@Component("dieselEngine")
+public class DieselEngine implements IEngine {
+
 	public DieselEngine() {
 		System.out.println("DieselEngine.DieselEngine() =>> Constructor");
 	}
@@ -12,7 +12,7 @@ public class DieselEngine implements IEngine{
 	@Override
 	public void start() {
 		System.out.println("DieselEngine.start() =>> Starting Diesel Engine");
-		
+
 	}
 
 	@Override
