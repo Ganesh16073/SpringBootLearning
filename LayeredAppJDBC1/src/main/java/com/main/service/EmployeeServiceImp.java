@@ -22,4 +22,10 @@ public class EmployeeServiceImp implements IEmployeeService{
 		return list;
 	}
 
+	@Override
+	public Boolean insertEmployee(Employee emp) throws Exception {
+		Boolean b=dao.addEmployee(emp);
+		return b;
+	}
+
 }

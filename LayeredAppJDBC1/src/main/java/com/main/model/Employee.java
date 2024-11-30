@@ -1,5 +1,6 @@
 package com.main.model;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Data
+@Scope("prototype")
 public class Employee {
 
 	private Integer eno;

@@ -16,16 +16,17 @@ import com.main.model.Employee;
 @Repository
 public class EmployeeDAOImp implements IEmployeeDAO{
 
-	public static String GET_ALL_EMPLOYEE="select * from Employee where job in (?,?,?) order by job ";
+	public static final String GET_ALL_EMPLOYEE="select * from Employee where job in (?,?,?) order by job ";
+	public static final String ADD_EMPLOYEE = "INSERT INTO Employee (ename, job, salary, deptno) VALUES (?, ?, ?, ?)";
+	
 	
 	@Autowired
 	public DataSource ds;
 	
 	@Override
 	public List<Employee> getEmployeeByDesgs(String desg1, String desg2, String desg3) throws Exception {
-		
+
 		List<Employee> emp=new ArrayList<>();
-		
 		try(Connection con=ds.getConnection();
 				PreparedStatement ps=con.prepareStatement(GET_ALL_EMPLOYEE);)
 		{
@@ -53,8 +54,32 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 			throw e;
 			
 		}
-		
 		return emp;
+	}
+
+	@Override
+	public Boolean addEmployee(Employee emp) throws Exception {
+		
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(ADD_EMPLOYEE);)
+		{
+			ps.setString(1, emp.getEname());
+			ps.setString(2, emp.getJob());
+			ps.setDouble(3, emp.getSalary());
+			ps.setInt(4, emp.getDeptno());
+			
+			int val=ps.executeUpdate();
+			if(val>0)
+			{
+				return true;
+			}
+
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		return false;
 	}
 
 }
