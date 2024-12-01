@@ -16,7 +16,7 @@ import com.main.model.Employee;
 public class LayeredAppJdbc1Application {
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		
 		ApplicationContext cxt=SpringApplication.run(LayeredAppJdbc1Application.class, args);
 		
@@ -29,34 +29,12 @@ public class LayeredAppJdbc1Application {
 			System.out.println("Enter the Choice ");
 			System.out.println("1: Add New Employee");
 			System.out.println("2: Get Employee by 3 Job Title");
+			System.out.println("3: Get All Employee ");
+			System.out.println("4: Get Employee by Id");
 			System.out.println("5: Exit");
 			int choice=sc.nextInt();
 			switch(choice)
-			{
-			case 2:
-				try
-				{
-					
-					System.out.println();
-					System.out.println("Enter the Job 3 titile");
-					sc.nextLine();
-					String job1=sc.nextLine();
-					System.out.println("Enter the Job 2");
-					String job2=sc.nextLine();
-					System.out.println("Enter the hob 3");
-					String job3=sc.nextLine();
-					List<Employee> emp=pr.showEmployeeByDesg(job1,job2,job3);
-					System.out.println();
-					System.out.println("Employee Data is =>> ");
-					emp.forEach((data) -> System.out.println(data));
-					System.out.println();
-					
-				}catch (Exception e) {
-					e.printStackTrace();
-					System.out.println("Some Internal Problem");
-				}
-				break;
-				
+			{	
 			case 1:
 				try
 				{
@@ -91,6 +69,60 @@ public class LayeredAppJdbc1Application {
 					e.printStackTrace();
 				}
 				break;
+				
+			case 2:
+				try
+				{
+					
+					System.out.println();
+					System.out.println("Enter the Job 3 titile");
+					sc.nextLine();
+					String job1=sc.nextLine();
+					System.out.println("Enter the Job 2");
+					String job2=sc.nextLine();
+					System.out.println("Enter the hob 3");
+					String job3=sc.nextLine();
+					List<Employee> emp=pr.showEmployeeByDesg(job1,job2,job3);
+					System.out.println();
+					System.out.println("Employee Data is =>> ");
+					emp.forEach((data) -> System.out.println(data));
+					System.out.println();
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Some Internal Problem");
+				}
+				break;
+				
+			case 3:
+				try
+				{
+					System.out.println("The All Employees of our Orginazation are =>>");
+					List<Employee> list=pr.showAllEmployee();
+					list.forEach(employee -> System.out.println(employee));
+				}catch (Exception e) {
+					e.printStackTrace();
+					System.out.println("Some Internal Problem");
+				}
+				break;
+				
+			case 4:
+				try
+				{
+					System.out.println("Enter the Id Of Employee to findout Employee");
+					int id=sc.nextInt();
+					Employee emp=pr.showEmployeByID(id);
+					System.out.println(emp);
+					if(emp==null)
+					{
+						System.out.println("Employee Not Found by id "+id);
+					}
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
 				
 			case 5:
 				System.out.println();

@@ -38,5 +38,17 @@ public class PayrollOperationController {
 		
 	}
 	
+	public List<Employee> showAllEmployee() throws Exception
+	{
+		List<Employee> list=service.fetchAllEmployee();
+		return list;
+	}
+	
+	public Employee showEmployeByID(int id) throws Exception
+	{
+		Employee em=service.fetchEmployeeById(id);
+		return em;
+	}
+	
 
 }
