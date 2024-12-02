@@ -22,6 +22,8 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 	public static final String ADD_EMPLOYEE = "INSERT INTO Employee (ename, job, salary, deptno) VALUES (?, ?, ?, ?)";
 	public static final String GET_ALL_EMPLOYEE="select * from Employee";
 	public static final String GET_EMPLOYEE_BY_ID="select * from employee where eno=?";
+	public static final String DELETE_EMPLOYEE_BY_ID="delete from employee where eno=?";
+	public static final String UPDATE_EMPLOYEE_NAME_BY_ID="update Employee set ename=? where eno=?";
 	
 	@Autowired
 	public DataSource ds;
@@ -150,6 +152,50 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 		}
 		
 		return list.stream().findFirst();
+	}
+
+	@Override
+	public Boolean deleteEmployeeById(int id) throws Exception {
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(DELETE_EMPLOYEE_BY_ID);)
+		{
+			ps.setInt(1, id);
+			
+			int val=ps.executeUpdate();
+			if(val>0)
+			{
+				return true;
+			}
+
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Boolean updateEmployeeNameById(int id,String name) throws Exception {
+		
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(UPDATE_EMPLOYEE_NAME_BY_ID);)
+		{
+			ps.setString(1,name);
+			ps.setInt(2, id);
+			int val=ps.executeUpdate();
+			if(val>0)
+			{
+				return true;
+			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return false;
+		
 	}
 
 }

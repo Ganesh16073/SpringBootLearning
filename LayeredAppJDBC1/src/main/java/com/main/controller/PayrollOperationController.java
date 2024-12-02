@@ -50,5 +50,16 @@ public class PayrollOperationController {
 		return em;
 	}
 	
+	public Boolean deleteEmployeeById(int id)throws Exception
+	{
+		Boolean result=service.removeEmployeeById(id);
+		return result;
+	}
+	
+	public Boolean updateEmployeeNameByID(int id,String name) throws Exception
+	{
+		boolean b=service.editEmployeeNameById(id, name);
+		return b;
+	}
 
 }

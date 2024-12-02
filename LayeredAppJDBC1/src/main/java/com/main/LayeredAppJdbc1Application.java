@@ -31,7 +31,9 @@ public class LayeredAppJdbc1Application {
 			System.out.println("2: Get Employee by 3 Job Title");
 			System.out.println("3: Get All Employee ");
 			System.out.println("4: Get Employee by Id");
-			System.out.println("5: Exit");
+			System.out.println("5: Delete employee by Id");
+			System.out.println("6: Update Employee Name By Id");
+			System.out.println("7: Exit");
 			int choice=sc.nextInt();
 			switch(choice)
 			{	
@@ -123,16 +125,65 @@ public class LayeredAppJdbc1Application {
 				}
 				break;
 				
-				
 			case 5:
+				
+				try {
+					System.out.println("Enter the id to delete Employee");
+					int id=sc.nextInt();
+					boolean b=pr.deleteEmployeeById(id);
+					if(b)
+					{
+						System.out.println("Employee Deleted Sucessfull........");
+					}
+					else
+					{
+						System.out.println("Employee Not found");
+					}
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+				break;
+				
+			case 6:
+				try
+				{
+					System.out.println();
+					System.out.println("Enter the name to Id");
+					int id=sc.nextInt();
+					System.out.println("Enter the name to update");
+					sc.nextLine();
+					String str=sc.nextLine();
+					boolean b=pr.updateEmployeeNameByID(id, str);
+					if(b)
+					{
+						System.out.println();
+						System.out.println("Employee Name Is Updated");
+					}
+					else
+					{
+						System.out.println();
+						System.out.println("Employee Not founnd");
+					}
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
+				
+			case 7:
 				System.out.println();
 				System.out.println("=========================== Exited =========================");
 				running=true;
+				break;
+				
+			default:
+				System.out.println("<<<<<<<<<<<<<<<<<<<<< INVALID CHOICE >>>>>>>>>>>>>>>>>>>>>");
 			}
 		}
-		
-		
-		
+
+
 		((ConfigurableApplicationContext)cxt).close();
 	}
 

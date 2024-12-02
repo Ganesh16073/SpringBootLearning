@@ -11,5 +11,8 @@ public interface IEmployeeService {
 	public Boolean insertEmployee(Employee emp) throws Exception;
 	public List<Employee> fetchAllEmployee() throws Exception;
 	public Employee fetchEmployeeById(int id) throws Exception;
+	public Boolean removeEmployeeById(int id) throws Exception;
+	public Boolean editEmployeeNameById(int id, String name)throws Exception;
+	
 
 }

@@ -42,4 +42,16 @@ public class EmployeeServiceImp implements IEmployeeService{
 		return emp.orElse(null);
 	}
 
+	@Override
+	public Boolean removeEmployeeById(int id) throws Exception {
+		boolean b=dao.deleteEmployeeById(id);
+		return b;
+	}
+
+	@Override
+	public Boolean editEmployeeNameById(int id, String name) throws Exception {
+		boolean b=dao.updateEmployeeNameById(id, name);
+		return b;
+	}
+
 }
