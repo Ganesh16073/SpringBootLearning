@@ -24,16 +24,19 @@ public class LayeredAppJdbc1Application {
 		Scanner sc=new Scanner(System.in);
 		boolean running=false;
 		
-		while(!running)
+		while(!running) 
 		{
-			System.out.println("Enter the Choice ");
-			System.out.println("1: Add New Employee");
-			System.out.println("2: Get Employee by 3 Job Title");
-			System.out.println("3: Get All Employee ");
-			System.out.println("4: Get Employee by Id");
-			System.out.println("5: Delete employee by Id");
-			System.out.println("6: Update Employee Name By Id");
-			System.out.println("7: Exit");
+			System.out.println("-----------------------------------------");
+			System.out.println("|  Enter the Choice                      |");
+			System.out.println("|  1: Add New Employee                   |");
+			System.out.println("|  2: Get Employee by 3 Job Title        |");
+			System.out.println("|  3: Get All Employee                   |");
+			System.out.println("|  4: Get Employee by Id                 |");
+			System.out.println("|  5: Delete employee by Id              |");
+			System.out.println("|  6: Update Employee Name By Id         |");
+			System.out.println("|  7: Update Employee Job Title By Id    |");
+			System.out.println("|  8: Exit                               |");
+			System.out.println("------------------------------------------");
 			int choice=sc.nextInt();
 			switch(choice)
 			{	
@@ -60,10 +63,12 @@ public class LayeredAppJdbc1Application {
 					Boolean b=pr.addNewEmployee(emp);
 					if(b)
 					{
+						System.out.println();
 						System.out.println("NEw Empoloyee Added");
 					}
 					else
 					{
+						System.out.println();
 						System.out.println("Some Erroe is there.......................");
 					}
 					
@@ -92,6 +97,7 @@ public class LayeredAppJdbc1Application {
 					
 				}catch (Exception e) {
 					e.printStackTrace();
+					System.out.println();
 					System.out.println("Some Internal Problem");
 				}
 				break;
@@ -99,11 +105,13 @@ public class LayeredAppJdbc1Application {
 			case 3:
 				try
 				{
+					System.out.println();
 					System.out.println("The All Employees of our Orginazation are =>>");
 					List<Employee> list=pr.showAllEmployee();
 					list.forEach(employee -> System.out.println(employee));
 				}catch (Exception e) {
 					e.printStackTrace();
+					System.out.println();
 					System.out.println("Some Internal Problem");
 				}
 				break;
@@ -117,6 +125,7 @@ public class LayeredAppJdbc1Application {
 					System.out.println(emp);
 					if(emp==null)
 					{
+						System.out.println();
 						System.out.println("Employee Not Found by id "+id);
 					}
 					
@@ -133,10 +142,12 @@ public class LayeredAppJdbc1Application {
 					boolean b=pr.deleteEmployeeById(id);
 					if(b)
 					{
+						System.out.println();
 						System.out.println("Employee Deleted Sucessfull........");
 					}
 					else
 					{
+						System.out.println();
 						System.out.println("Employee Not found");
 					}
 				} catch (Exception e) {
@@ -171,8 +182,33 @@ public class LayeredAppJdbc1Application {
 				}
 				break;
 				
-				
 			case 7:
+				try
+				{
+					System.out.println();
+					System.out.println("Enter the Id to Update Job Of Employee");
+					int id=sc.nextInt();
+					System.out.println("enter the Job Title");
+					sc.nextLine();
+					String Jtitle=sc.nextLine();
+					boolean b=pr.updateEmployeeJobById(id, Jtitle);
+					if(b)
+					{
+						System.out.println();
+						System.out.println("Employee Job Title Is Changed");
+					}
+					else
+					{
+						System.out.println();
+						System.out.println("Employee Not Found");
+					}
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
+			case 8:
 				System.out.println();
 				System.out.println("=========================== Exited =========================");
 				running=true;

@@ -13,6 +13,7 @@ public interface IEmployeeService {
 	public Employee fetchEmployeeById(int id) throws Exception;
 	public Boolean removeEmployeeById(int id) throws Exception;
 	public Boolean editEmployeeNameById(int id, String name)throws Exception;
+	public Boolean editEmployeeJobById(int id, String job)throws Exception;
 	
 
 }

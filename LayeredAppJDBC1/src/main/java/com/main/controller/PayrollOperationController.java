@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Controller;
 
 import com.main.model.Employee;
-import com.main.service.EmployeeServiceImp;
 import com.main.service.IEmployeeService;
 
 @Controller
@@ -52,14 +51,17 @@ public class PayrollOperationController {
 	
 	public Boolean deleteEmployeeById(int id)throws Exception
 	{
-		Boolean result=service.removeEmployeeById(id);
-		return result;
+		return service.removeEmployeeById(id);
 	}
 	
 	public Boolean updateEmployeeNameByID(int id,String name) throws Exception
 	{
-		boolean b=service.editEmployeeNameById(id, name);
-		return b;
+		return service.editEmployeeNameById(id, name);
+	}
+	
+	public boolean updateEmployeeJobById(int id, String job)throws Exception
+	{
+		return service.editEmployeeJobById(id, job);
 	}
 
 }

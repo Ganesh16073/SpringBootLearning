@@ -24,6 +24,7 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 	public static final String GET_EMPLOYEE_BY_ID="select * from employee where eno=?";
 	public static final String DELETE_EMPLOYEE_BY_ID="delete from employee where eno=?";
 	public static final String UPDATE_EMPLOYEE_NAME_BY_ID="update Employee set ename=? where eno=?";
+	public static final String UPDATE_EMPLOYEE_JOB_BY_ID="update Employee set job=? where eno=?";
 	
 	@Autowired
 	public DataSource ds;
@@ -196,6 +197,28 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 		}
 		return false;
 		
+	}
+
+	@Override
+	public Boolean updateEmployeeJobById(int id, String job) throws Exception {
+		
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(UPDATE_EMPLOYEE_JOB_BY_ID);)
+		{
+			ps.setString(1,job);
+			ps.setInt(2, id);
+			int val=ps.executeUpdate();
+			if(val>0)
+			{
+				return true;
+			}
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return false;
 	}
 
 }
