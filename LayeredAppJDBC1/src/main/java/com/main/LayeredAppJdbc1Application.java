@@ -35,7 +35,8 @@ public class LayeredAppJdbc1Application {
 			System.out.println("|  5: Delete employee by Id              |");
 			System.out.println("|  6: Update Employee Name By Id         |");
 			System.out.println("|  7: Update Employee Job Title By Id    |");
-			System.out.println("|  8: Exit                               |");
+			System.out.println("|  8: Update Employee Salary By Id       |");
+			System.out.println("|  9: Exit                               |");
 			System.out.println("------------------------------------------");
 			int choice=sc.nextInt();
 			switch(choice)
@@ -213,6 +214,28 @@ public class LayeredAppJdbc1Application {
 				break;
 				
 			case 8:
+				try
+				{
+					System.out.println();
+					System.out.println("Enter the Employee Id to Update The Salary");
+					int id=sc.nextInt();
+					System.out.println("Enter the Emeplyee Salary to Update Salary");
+					double sal=sc.nextDouble();
+					boolean b=pr.updateEmployeeSalaryById(id, sal);
+					if(b)
+					{
+						System.out.println("Employee Salary Is Updated");
+					}
+					else
+					{
+						System.out.println("Employee Salary is Not Updated");
+					}
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
+			case 9:
 				System.out.println();
 				System.out.println("=========================== Exited =========================");
 				running=true;

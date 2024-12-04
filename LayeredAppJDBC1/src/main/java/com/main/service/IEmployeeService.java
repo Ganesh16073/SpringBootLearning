@@ -14,6 +14,6 @@ public interface IEmployeeService {
 	public Boolean removeEmployeeById(int id) throws Exception;
 	public Boolean editEmployeeNameById(int id, String name)throws Exception;
 	public Boolean editEmployeeJobById(int id, String job)throws Exception;
-	
+	public Boolean editEmployeeSalaryId(int id, Double salary) throws Exception;
 
 }

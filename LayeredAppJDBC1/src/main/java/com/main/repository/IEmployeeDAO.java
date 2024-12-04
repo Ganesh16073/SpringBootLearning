@@ -14,5 +14,6 @@ public interface IEmployeeDAO {
 	public Boolean deleteEmployeeById(int id) throws Exception;
 	public Boolean updateEmployeeNameById(int id,String name) throws Exception;
 	public Boolean updateEmployeeJobById(int id,String job) throws Exception;
+	public Boolean updateEmployeeSalaryById(int id, double salary)throws Exception;
 	
 }

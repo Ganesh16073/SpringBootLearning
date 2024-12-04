@@ -60,4 +60,10 @@ public class EmployeeServiceImp implements IEmployeeService{
 		return b;
 	}
 
+	@Override
+	public Boolean editEmployeeSalaryId(int id, Double salary) throws Exception {
+		
+		return dao.updateEmployeeSalaryById(id,salary);
+	}
+
 }
