@@ -108,7 +108,11 @@ public class LayeredAppJdbc1Application {
 					System.out.println();
 					System.out.println("The All Employees of our Orginazation are =>>");
 					List<Employee> list=pr.showAllEmployee();
-					list.forEach(employee -> System.out.println(employee));
+					System.out.println();
+					list.forEach(employee -> {
+						System.out.println(employee);
+					});
+					System.out.println();
 				}catch (Exception e) {
 					e.printStackTrace();
 					System.out.println();
