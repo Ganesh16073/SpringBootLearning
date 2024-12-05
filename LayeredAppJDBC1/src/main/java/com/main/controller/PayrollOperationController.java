@@ -69,5 +69,9 @@ public class PayrollOperationController {
 		
 		return service.editEmployeeSalaryId(id, salary);
 	}
+	public Boolean updateEmployeeDepartNo(int id,int dpt)throws Exception
+	{
+		return service.editEmployeeDepartNoById(id, dpt);
+	}
 
 }

@@ -26,18 +26,19 @@ public class LayeredAppJdbc1Application {
 		
 		while(!running) 
 		{
-			System.out.println("-----------------------------------------");
-			System.out.println("|  Enter the Choice                      |");
-			System.out.println("|  1: Add New Employee                   |");
-			System.out.println("|  2: Get Employee by 3 Job Title        |");
-			System.out.println("|  3: Get All Employee                   |");
-			System.out.println("|  4: Get Employee by Id                 |");
-			System.out.println("|  5: Delete employee by Id              |");
-			System.out.println("|  6: Update Employee Name By Id         |");
-			System.out.println("|  7: Update Employee Job Title By Id    |");
-			System.out.println("|  8: Update Employee Salary By Id       |");
-			System.out.println("|  9: Exit                               |");
-			System.out.println("------------------------------------------");
+			System.out.println("-------------------------------------------------");
+			System.out.println("|  Enter the Choice                             |");
+			System.out.println("|  1: Add New Employee                          |");
+			System.out.println("|  2: Get Employee by 3 Job Title               |");
+			System.out.println("|  3: Get All Employee                          |");
+			System.out.println("|  4: Get Employee by Id                        |");
+			System.out.println("|  5: Delete employee by Id                     |");
+			System.out.println("|  6: Update Employee Name By Id                |");
+			System.out.println("|  7: Update Employee Job Title By Id           |");
+			System.out.println("|  8: Update Employee Salary By Id              |");
+			System.out.println("|  9: Update Employee Department Number By Id   |");
+			System.out.println("|  10: Exit                                     |");
+			System.out.println("-------------------------------------------------");
 			int choice=sc.nextInt();
 			switch(choice)
 			{	
@@ -236,6 +237,27 @@ public class LayeredAppJdbc1Application {
 				break;
 				
 			case 9:
+				try {
+					System.out.println("Enter the Employee Id to update Employee Department");
+					int id=sc.nextInt();
+					System.out.println("Enter the Department Number to Updated");
+					int dep=sc.nextInt();
+					boolean b=pr.updateEmployeeDepartNo(id, dep);
+					if(b)
+					{
+						System.out.println("The Employee Department is Updated");
+					}
+					else
+					{
+						System.out.println("Something is went wrong");
+					}
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
+			case 10:
 				System.out.println();
 				System.out.println("=========================== Exited =========================");
 				running=true;
