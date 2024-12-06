@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.main.model.Employee;
+import com.main.model.Login;
 
 @Repository
 public class EmployeeDAOImp implements IEmployeeDAO{
 
+	public static final String CHECK_ADMIN_LOGIN="select * from Login where email=? and password=?";
 	public static final String GET_EMPLOYEE_BY_DESEGINATION="select * from Employee where job in (?,?,?) order by eno ";
 	public static final String ADD_EMPLOYEE = "INSERT INTO Employee (ename, job, salary, deptno) VALUES (?, ?, ?, ?)";
 	public static final String GET_ALL_EMPLOYEE="select * from Employee";
@@ -32,8 +34,33 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 	public DataSource ds;
 	
 	@Override
+	public Boolean isLogin(Login lg)throws Exception
+	{
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(CHECK_ADMIN_LOGIN);)
+		{
+			ps.setString(1, lg.getEmail());
+			ps.setString(2, lg.getPassword());
+			
+			try(ResultSet rs=ps.executeQuery();)
+			{
+				if(rs.next())
+				{
+					System.out.println("True");
+					return true;
+				}
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		return false;
+	}
+	@Override
 	public List<Employee> getEmployeeByDesgs(String desg1, String desg2, String desg3) throws Exception {
-
+		
 		List<Employee> emp=new LinkedList<>();
 		try(Connection con=ds.getConnection();
 				PreparedStatement ps=con.prepareStatement(GET_EMPLOYEE_BY_DESEGINATION);)
@@ -263,5 +290,9 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 		}
 		return false;
 	}
+
+	
+
+	
 
 }

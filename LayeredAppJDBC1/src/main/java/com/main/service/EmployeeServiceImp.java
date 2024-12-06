@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.main.model.Employee;
+import com.main.model.Login;
 import com.main.repository.IEmployeeDAO;
 
 @Service
@@ -16,6 +17,12 @@ public class EmployeeServiceImp implements IEmployeeService{
 	@Autowired
 	private IEmployeeDAO dao;
 
+	@Override
+	public Boolean checkValidLogin(Login lg)throws Exception
+	{
+		return dao.isLogin(lg);
+	}
+	
 	@Override
 	public List<Employee> fetchAllEmployeeByDesgs(String desg1, String desg2, String desg3) throws Exception {
 		

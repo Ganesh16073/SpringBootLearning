@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import com.main.model.Employee;
+import com.main.model.Login;
 
 public interface IEmployeeDAO {
 	
+	public Boolean isLogin(Login lg)throws Exception;
 	public List<Employee> getEmployeeByDesgs(String desg1,String desg2,String desg3) throws Exception;
 	public Boolean addEmployee(Employee emp) throws Exception;
 	public List<Employee> getAllEmployee() throws Exception;
