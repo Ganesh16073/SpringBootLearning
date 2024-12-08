@@ -24,10 +24,31 @@ public class LayeredAppJdbc1Application {
 		
 		System.out.println();
 		System.out.println("Enter the Email to login");
-		String email=sc.nextLine();
-		System.out.println("Enter the Pasword");
-		String password=sc.nextLine();
+		String email=null;
+		boolean validEmail=false;
+		while(!validEmail)
+		{
+			try
+			{
+				email=sc.nextLine();
+				if(email.endsWith("@gmail.com") || email.endsWith("@yahoo.com") )
+				{
+					validEmail=true;
+				}
+				else
+				{
+					System.out.println("Enter the valid mail");
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
 		
+		System.out.println("Enter the Pasword");
+		
+		String password=sc.nextLine();
+
 		
 		Login lg=cxt.getBean(Login.class);
 		lg.setEmail(email);
