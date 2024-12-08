@@ -11,12 +11,6 @@ import com.main.service.IEmployeeService;
 @Scope("prototype")
 public class LoginController {
 	
-	
-
-	public LoginController() {
-		System.out.println("LoginController.LoginController()");
-	}
-
 
 	@Autowired
 	private IEmployeeService service;

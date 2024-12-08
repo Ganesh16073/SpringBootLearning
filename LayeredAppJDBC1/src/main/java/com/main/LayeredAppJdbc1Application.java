@@ -15,7 +15,6 @@ import com.main.model.Login;
 
 @SpringBootApplication
 public class LayeredAppJdbc1Application {
-	
 
 	public static void main(String[] args)  {
 		
@@ -37,7 +36,9 @@ public class LayeredAppJdbc1Application {
 				}
 				else
 				{
+					System.out.println();
 					System.out.println("Enter the valid mail");
+					System.out.println();
 				}
 			}catch (Exception e) {
 				e.printStackTrace();
@@ -68,6 +69,7 @@ public class LayeredAppJdbc1Application {
 			System.out.println();
 			System.out.println("Invalid Email or Password");
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> Try Again <<<<<<<<<<<<<<<<<<<<");
+			System.out.println();
 			System.out.println("============================= Exited ======================");
 			System.out.println();
 			
@@ -98,66 +100,123 @@ public class LayeredAppJdbc1Application {
 				switch(choice)
 				{	
 				case 1:
-					try
-					{
-						System.out.println();
-						System.out.println("Enter the name of Employee");
-						sc.nextLine();
-						String ename=sc.nextLine();
-						System.out.println("Ente the Job Title");
-						String jobTitle=sc.nextLine();
-						System.out.println("Ente the Salary of Employee");
-						double sal=sc.nextDouble();
-						System.out.println("Enter the Depart number");
-						int dno=sc.nextInt();
-						
-						Employee emp=pr.getEmployee();
-						emp.setEname(ename);
-						emp.setJob(jobTitle);
-						emp.setSalary(sal);
-						emp.setDeptno(dno);
-						
-						Boolean b=pr.addNewEmployee(emp);
-						if(b)
-						{
-							System.out.println();
-							System.out.println("NEw Empoloyee Added");
-						}
-						else
-						{
-							System.out.println();
-							System.out.println("Some Erroe is there.......................");
-						}
-						
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-					break;
+				    try {
+				        System.out.println();
+				        System.out.println("Enter the name of Employee:");
+				        sc.nextLine(); // Clear the buffer
+				        String ename = sc.nextLine();
+				        
+				        System.out.println("Enter the Job Title:");
+				        String jobTitle = sc.nextLine();
+				        
+				        System.out.println("Enter the Salary of Employee:");
+				        double sal = 0.0;
+				        while (true) {
+				            try {
+				                sal = sc.nextDouble();
+				                if (sal <= 0) {
+				                    System.out.println("Salary must be positive. Please enter again:");
+				                    continue;
+				                }
+				                break;
+				            } catch (Exception e) {
+				                System.out.println("Invalid salary! Please enter a numeric value:");
+				                sc.next(); // Clear invalid input
+				            }
+				        }
+				        
+				        System.out.println("Enter the Department number:");
+				        int dno = 0;
+				        while (true) {
+				            try {
+				                dno = sc.nextInt();
+				                if (dno <= 0) {
+				                    System.out.println("Department number must be positive. Please enter again:");
+				                    continue;
+				                }
+				                break;
+				            } catch (Exception e) {
+				                System.out.println("Invalid department number! Please enter a numeric value:");
+				                sc.next(); // Clear invalid input
+				            }
+				        }
+
+				        Employee emp = pr.getEmployee();
+				        emp.setEname(ename);
+				        emp.setJob(jobTitle);
+				        emp.setSalary(sal);
+				        emp.setDeptno(dno);
+
+				        Boolean b = pr.addNewEmployee(emp);
+				        if (b) {
+				            System.out.println();
+				            System.out.println("New Employee Added");
+				        } else {
+				            System.out.println();
+				            System.out.println("Some Error is there...");
+				        }
+
+				    } catch (Exception e) {
+				        System.out.println("An unexpected error occurred: " + e.getMessage());
+				        e.printStackTrace();
+				    }
+				    break;
 					
 				case 2:
-					try
-					{
-						
-						System.out.println();
-						System.out.println("Enter the Job 3 titile");
-						sc.nextLine();
-						String job1=sc.nextLine();
-						System.out.println("Enter the Job 2");
-						String job2=sc.nextLine();
-						System.out.println("Enter the hob 3");
-						String job3=sc.nextLine();
-						List<Employee> emp=pr.showEmployeeByDesg(job1,job2,job3);
-						System.out.println();
-						System.out.println("Employee Data is =>> ");
-						emp.forEach((data) -> System.out.println(data));
-						System.out.println();
-						
-					}catch (Exception e) {
-						e.printStackTrace();
-						System.out.println();
-						System.out.println("Some Internal Problem");
-					}
-					break;
+				    try {
+				        System.out.println();
+				        System.out.println("Enter the first Job Title:");
+				        sc.nextLine(); // Clear the buffer
+				        String job1;
+				        while (true) {
+				            job1 = sc.nextLine();
+				            if (job1.isEmpty()) {
+				                System.out.println("Job Title cannot be empty. Please enter again:");
+				            } else {
+				                break;
+				            }
+				        }
+
+				        System.out.println("Enter the second Job Title:");
+				        String job2;
+				        while (true) {
+				            job2 = sc.nextLine();
+				            if (job2.isEmpty()) {
+				                System.out.println("Job Title cannot be empty. Please enter again:");
+				            } else {
+				                break;
+				            }
+				        }
+
+				        System.out.println("Enter the third Job Title:");
+				        String job3;
+				        while (true) {
+				            job3 = sc.nextLine();
+				            if (job3.isEmpty()) {
+				                System.out.println("Job Title cannot be empty. Please enter again:");
+				            } else {
+				                break;
+				            }
+				        }
+
+				        List<Employee> emp = pr.showEmployeeByDesg(job1, job2, job3);
+
+				        if (emp.isEmpty()) {
+				            System.out.println();
+				            System.out.println("No employees found with the given job titles.");
+				        } else {
+				            System.out.println();
+				            System.out.println("Employee Data is =>>");
+				            emp.forEach((data) -> System.out.println(data));
+				            System.out.println();
+				        }
+
+				    } catch (Exception e) {
+				        e.printStackTrace();
+				        System.out.println();
+				        System.out.println("Some internal problem occurred.");
+				    }
+				    break;
 					
 				case 3:
 					try
@@ -315,6 +374,7 @@ public class LayeredAppJdbc1Application {
 				case 10:
 					System.out.println();
 					System.out.println("=========================== Exited =========================");
+					System.out.println();
 					ValidAdmin=false;
 					running=true;
 					break;
