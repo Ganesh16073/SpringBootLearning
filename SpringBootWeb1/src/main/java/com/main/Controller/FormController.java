@@ -16,18 +16,26 @@ public class FormController {
 		return "form.jsp";
 	}
 	
+//	@RequestMapping("add")
+//	public String add(HttpServletRequest req,HttpSession session) // using servlet
+//	{
+//		int num1=Integer.parseInt(req.getParameter("num1"));
+//		int num2=Integer.parseInt(req.getParameter("num2"));
+//		int result=num1+num2;
+//		
+//		session.setAttribute("result",result);
+//		return "result.jsp";
+//	}
+	
+
 	@RequestMapping("add")
-	public String add(HttpServletRequest req,HttpSession session) // using servlet
+	public String addByAnnotation(int num1,int num2,HttpSession session) // need to use same id and variable name if not its give(type=Internal Server Error, status=500).
 	{
-		int num1=Integer.parseInt(req.getParameter("num1"));
-		int num2=Integer.parseInt(req.getParameter("num2"));
 		int result=num1+num2;
-		
 		session.setAttribute("result",result);
 		return "result.jsp";
 	}
 	
-
 	
 	
 }
