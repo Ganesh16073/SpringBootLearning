@@ -57,7 +57,7 @@
 	
 
 	<body>
-		<h1> Result is =>> <%= session.getAttribute("result") %> <h1>
+		//<h1> Result is =>> <%= session.getAttribute("result") %> <h1> // we are not using session
 			// or we can use
 		<h1> Result is =>> ${result} <h1>
 			
