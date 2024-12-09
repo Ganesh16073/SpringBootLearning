@@ -1,10 +1,11 @@
 package com.main.Controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.main.entity.Alieen;
 
 @Controller
 public class FormController {
@@ -67,6 +68,19 @@ public class FormController {
 		int result=num+num2;
 		model.addObject("result",result);
 		model.setViewName("result");
+		return model; 
+	}
+	
+	@RequestMapping("addAlieen")
+	public ModelAndView addAlieenByAnnotation(@RequestParam("eid")int eid,@RequestParam("ename")String ename,ModelAndView model) 
+	{
+		Alieen al=new Alieen();
+		al.setEid(eid);
+		al.setEname(ename);
+		
+		model.addObject("ResultAlieen",al);
+		model.setViewName("ResultAlieen");
+		
 		return model; 
 	}
 	
