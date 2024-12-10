@@ -5,23 +5,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class Alieen {
 
-	private int eid;
-	private String ename;
-	public int getEid() {
-		return eid;
+	private int aid;
+	private String aname;
+	public int getAid() {
+		return aid;
 	}
-	public void setEid(int eid) {
-		this.eid = eid;
+	public void setAid(int aid) {
+		this.aid = aid;
 	}
-	public String getEname() {
-		return ename;
+	public String getAname() {
+		return aname;
 	}
-	public void setEname(String ename) {
-		this.ename = ename;
+	public void setAname(String aname) {
+		this.aname = aname;
 	}
 	@Override
 	public String toString() {
-		return "Alieen [eid=" + eid + ", ename=" + ename + "]";
+		return "Alieen [aid=" + aid + ", aname=" + aname + "]";
 	}
+	
 	
 }

@@ -1,6 +1,8 @@
 package com.main.Controller;
 
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -71,17 +73,37 @@ public class FormController {
 		return model; 
 	}
 	
-	@RequestMapping("addAlieen")
-	public ModelAndView addAlieenByAnnotation(@RequestParam("eid")int eid,@RequestParam("ename")String ename,ModelAndView model) 
+	@RequestMapping("/FormAlieen") // request for form of alieen add
+	public String openAlieenForm()
 	{
-		Alieen al=new Alieen();
-		al.setEid(eid);
-		al.setEname(ename);
-		
-		model.addObject("ResultAlieen",al);
-		model.setViewName("ResultAlieen");
-		
-		return model; 
+		System.out.println("FormController.openForm()");
+		return "AddAlieen";
+	}
+	
+//	@RequestMapping("/AddAlien")
+//	public ModelAndView addAlieenByAnnotation(@RequestParam("aid")int eid,@RequestParam("aname")String ename,ModelAndView model) 
+//	{
+//		System.out.println("Received - Aid: " + eid + ", Aname: " + ename);
+//		Alieen al=new Alieen();
+//		al.setEid(eid);
+//		al.setEname(ename);
+//		
+//		model.addObject("alieen",al);  // "alieen is the variable in jsp page which is called session.alieen" and al is object data pased in it
+//		model.setViewName("ResultAlieen"); // display form mane ResultAlieen.jsp
+//		
+//		return model; 
+//	}
+	
+//	@RequestMapping("/AddAlien")
+//	public String addAlieenByAnnotation(@ModelAttribute Alieen al) {
+//	    System.out.println(al.getAid() + "  " + al.getAname()); // (form id), (class_variable) and Getter setter shoule be same other wise it pass the null avalue
+//	    return "ResultAlieen"; // calling result page 
+//	}
+	
+	@RequestMapping("/AddAlien")
+	public String addAlieenByAnnotation(Alieen al) {
+	    System.out.println(al.getAid() + "  " + al.getAname()); // (form id), (class_variable) and Getter setter shoule be same other wise it pass the null avalue
+	    return "ResultAlieen"; // calling result page 
 	}
 	
 	

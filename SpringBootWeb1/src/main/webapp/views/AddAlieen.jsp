@@ -58,12 +58,12 @@
 
 	<body>
 		<h1> CALCULATE  <h1>
-			<form action="addAlieen" class="box">
-				<lable for="eid"> Enter the First Number :</lable>
-				<input type="number" id="eid" name="eid"><br>
-				<lable for="ename"> Enter the Second Number :</lable>
-				<input type="text" id="ename" name="ename"><br>
-				<input type="submit" value="Submit">
+			<form action="/AddAlien" class="box" method="POST">
+			    <label for="aid">Enter the First Number:</label>
+			    <input type="text" id="aid" name="aid"><br>
+			    <label for="aname">Enter the Second Number:</label>
+			    <input type="text" id="aname" name="aname"><br>
+			    <input type="submit" value="Submit">
 			</form>
 	</body>
 </html>
