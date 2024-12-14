@@ -11,5 +11,11 @@ public class JobController {
 	{
 		return "home"; // home.jsp
 	}
+	
+	@RequestMapping("addjob")
+	public String addJob()
+	{
+		return "addjob";
+	}
 
 }
