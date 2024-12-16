@@ -38,7 +38,7 @@ p {
 
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-clr bg-dark">
-		<div class="container text-white">
+		<div class="container-fluid text-white">
 			<a class="navbar-brand fs-1 fw-medium  text-white" href="#">Technology Job
 				Portal Web App</a>
 			<button class="navbar-toggler" type="button"

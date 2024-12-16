@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<title>Telusko Job Portal</title>
+	<title>Job Portal</title>
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 		rel="stylesheet"
@@ -30,11 +30,9 @@
 	</style>
 	</head>
 	<body>
-	
-	
-		<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-			<div class="container">
-				<a class="navbar-brand fs-1 fw-medium" href="#">Telusko Job
+		<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+			<div class="container-fluid text-white">
+				<a class="navbar-brand fs-1 fw-medium text-white" href="#">Job
 					Portal Web App</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -42,12 +40,12 @@
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="viewalljobs">About</a></li>
+				<div class="collapse navbar-collapse text-white " id="navbarNav">
+					<ul class="navbar-nav ms-auto text-white">
+						<li class="nav-item text-white"><a class="nav-link text-white" href="home">Home</a></li>
+						<li class="nav-item"><a class="nav-link text-white" href="viewalljobs">About</a></li>
 						
-						<li class="nav-item"><a class="nav-link" href="https://telusko.com/">Contact</a>
+						<li class="nav-item"><a class="nav-link text-white" href="https://telusko.com/">Contact</a>
 						</li>
 					</ul>
 				</div>
