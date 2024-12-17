@@ -18,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand fs-1 fw-medium text-white" href="#">Job Portal Web App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link text-white" href="home">Home</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="viewalljobs">All Jobs</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="https://telusko.com/">Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="">Contact</a></li>
             </ul>
         </div>
     </div>

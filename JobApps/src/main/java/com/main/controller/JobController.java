@@ -16,7 +16,6 @@ import com.main.service.JobService;
 public class JobController {
 	
 	@Autowired
-	@Qualifier("jobServiceImp")
 	JobService jobService;
 	
 	@GetMapping({"/","home"}) // both url call this method
