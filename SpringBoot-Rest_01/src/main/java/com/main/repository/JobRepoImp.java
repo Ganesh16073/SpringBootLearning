@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -21,7 +22,7 @@ public class JobRepoImp implements JobRepo{
 
 	private static String GET_ALL_JOBS="Select * from jobPost";
 	private static String ADD_NEW_JOB="insert into jobPost value ('0',?,?,?,?)";
-	
+	private static String GET_JOB_BY_ID="select * from jobPost where postId=?";
 	private List<JobPost> list=new ArrayList<>();
 //	Arrays.asList(new JobPost(10,"Java Developer","Spring Boot Must",1, List.of("Java","SqL")))
 	
@@ -99,5 +100,34 @@ public class JobRepoImp implements JobRepo{
 	        e.printStackTrace();
 	        return new ArrayList<>(); // Return an empty list in case of parsing failure
 	    }
+	}
+
+	@Override
+	public Optional<JobPost> getJob(int id) throws Exception {
+		try(Connection con=ds.getConnection();
+				PreparedStatement ps=con.prepareStatement(GET_JOB_BY_ID);)
+		{
+			ps.setInt(1, id);
+			try(ResultSet rs=ps.executeQuery())
+			{
+				JobPost jp=new JobPost();
+				while(rs.next())
+				{
+					jp.setPostId(rs.getInt(1));
+					jp.setPostProfile(rs.getString(2));
+					jp.setPostDesc(rs.getString(3));
+					jp.setReqExperience(rs.getInt(4));
+					
+					String techStackJson=rs.getString("postTechStack");
+					List<String> techStack=parseJsonToList(techStackJson);
+					jp.setPostTechStack(techStack);
+				}
+				return Optional.of(jp);
+			}
+		}catch (Exception e) {
+		     throw e;
+		     
+		}
+
 	}
 }

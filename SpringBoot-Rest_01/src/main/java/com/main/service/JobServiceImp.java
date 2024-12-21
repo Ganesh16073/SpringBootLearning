@@ -3,6 +3,7 @@ package com.main.service;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,21 @@ public class JobServiceImp implements JobService{
 		List<JobPost> copy=jobRepo.getAllJobs();
 		Collections.sort(copy,compareById);
 		return copy;
+	}
+
+	@Override
+	public JobPost getJob(int id) throws Exception {
+		
+		Optional<JobPost> get=jobRepo.getJob(id);
+		if(get.isPresent())
+		{
+			return get.get();
+		}
+		else
+		{
+			return get.orElse(null);
+		}
+		
 	}
 
 }

@@ -9,6 +9,7 @@ public class SpringBootRest01Application {
 
 	public static void main(String[] args) {
 		ApplicationContext cxt=SpringApplication.run(SpringBootRest01Application.class, args);
+	
 	}
 
 }
