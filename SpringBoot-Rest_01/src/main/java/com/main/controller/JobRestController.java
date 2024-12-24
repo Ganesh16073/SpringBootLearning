@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.main.model.JobPost;
@@ -39,9 +40,23 @@ public class JobRestController {
 			return jobService.getJob(id);
 			
 		}catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	@PostMapping("/jobPost")
+	public Boolean addJob(JobPost jobPost)
+	{
+		try {
+			boolean b=jobService.addJob(jobPost);
+			System.out.println("JOB Added");
+			return b;
+		} catch (Exception e) {
+			System.out.println("JOB NOT Added");
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
