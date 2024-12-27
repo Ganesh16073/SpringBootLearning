@@ -1,5 +1,6 @@
 package com.main.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.main.entity.Customer;
@@ -18,4 +19,6 @@ public interface ICustomerManagementService {
 	public String registerOrUpdateCustumerDetails(Customer customer);
 	public String removeCustumerById(int id);
 	public String removeCustumer(Customer cust);
+	public String deleteAllCustomer();
+	public String removeAllCustomerById(List<Integer> ids);
 }

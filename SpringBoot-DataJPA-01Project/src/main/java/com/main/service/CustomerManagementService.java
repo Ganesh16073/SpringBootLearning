@@ -149,6 +149,34 @@ public class CustomerManagementService implements ICustomerManagementService{
 		}
 	}
 
+
+	@Override
+	public String deleteAllCustomer() {
+		long count=customerRepository.count();
+		if(count>0)
+		{
+			customerRepository.deleteAll();
+			return "All Custumer are Deleted";
+		}
+		else
+		{
+			return "No Coustumer Found";
+		}
+		
+	}
+
+
+	@Override
+	public String removeAllCustomerById(List<Integer> ids) {
+		List<Customer> list=(List<Customer>)customerRepository.findAllById(ids);
+		if(list.size()== ids.size())
+		{
+			customerRepository.deleteAll(list);
+			return ids.size()+" no of Records are Deleted";
+		}
+		return "given ids based records are not found for Deletion";
+	}
+
 	
 
 

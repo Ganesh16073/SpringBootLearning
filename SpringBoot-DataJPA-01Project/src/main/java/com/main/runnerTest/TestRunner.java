@@ -1,12 +1,11 @@
 package com.main.runnerTest;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.main.entity.Customer;
 import com.main.service.ICustomerManagementService;
 
 @Component
@@ -124,14 +123,33 @@ public class TestRunner implements CommandLineRunner{
 //		}
 		
 
+//		try
+//		{
+//			String res=service.removeCustumerById(4);
+//			System.out.println(res);
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+//		try
+//		{
+//			String res=service.deleteAllCustomer();
+//			System.out.println(res);
+//			
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//		}
+		
 		try
 		{
-			String res=service.removeCustumerById(4);
-			System.out.println(res);
+			System.out.println(service.removeAllCustomerById(List.of(102,103)));
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		
 	}
 
 }
