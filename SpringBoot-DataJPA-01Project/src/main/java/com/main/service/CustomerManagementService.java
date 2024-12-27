@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -72,6 +73,14 @@ public class CustomerManagementService implements ICustomerManagementService{
 		return li;
 	}
 
+
+	@Override
+	public Optional<Customer> getCustomerById(int id) {
+		Optional<Customer> cus=customerRepository.findById(id);
+		return cus;
+	}
+
+	
 
 
 }

@@ -1,5 +1,7 @@
 package com.main.service;
 
+import java.util.Optional;
+
 import com.main.entity.Customer;
 
 public interface ICustomerManagementService {
@@ -10,4 +12,5 @@ public interface ICustomerManagementService {
 	public long getCustomerCounnt();
 	public Iterable<Customer> getAllCustomer();
 	public Iterable<Customer> getCustomerByIds(Iterable<Integer> ids);
+	public Optional<Customer> getCustomerById(int id);
 }

@@ -1,6 +1,6 @@
 package com.main.runnerTest;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -76,16 +76,31 @@ public class TestRunner implements CommandLineRunner{
 //			e.printStackTrace();
 //		}
 		
+//		try
+//		{
+//			System.out.println("All Customer by id ");
+//			Iterable<Customer> li=service.getCustomerByIds(List.of(1,2,4));// if we pass null it give nullpointer exceptions
+//			li.forEach(System.out::println);
+//			
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//		}
 		try
 		{
-			System.out.println("All Customer by id ");
-			Iterable<Customer> li=service.getCustomerByIds(List.of(1,2,4));// if we pass null it give nullpointer exceptions
-			li.forEach(System.out::println);
+			System.out.println(" Customer by id ");
+			Optional<Customer> li=service.getCustomerById(1);
+			if(li.isPresent())
+			{
+				System.out.println("The Customer is "+li.get());
+			}
+			else
+			{
+				System.out.println("Not Valid Customer");
+			}
 			
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
 		
 		
 	}
