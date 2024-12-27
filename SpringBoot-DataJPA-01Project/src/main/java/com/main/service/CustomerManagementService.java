@@ -31,23 +31,23 @@ public class CustomerManagementService implements ICustomerManagementService{
 		if(list!=null)
 		{
 			Iterable<Customer> cust=customerRepository.saveAll(list);
-			
 			int size=((Collection)cust).size();
 			List<Integer> customer=new ArrayList<Integer>();
-			
 			cust.forEach(c->customer.add(c.getId()));
-			
 			return size+" no of Customer are Register having Id valuse are "+customer.toString();
-			
 			
 		}
 		else
 		{
 			throw new IllegalArgumentException("Invalid Inputes");
-		
 		}
+	}
+
+
+	@Override
+	public Boolean isCustomerAvailable(Integer Id) {
 		
-		
+		return customerRepository.existsById(Id); // check Available or not
 	}
 
 
