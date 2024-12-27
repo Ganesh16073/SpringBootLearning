@@ -41,19 +41,38 @@ public class TestRunner implements CommandLineRunner{
 //		}catch (Exception e) {
 //			e.printStackTrace(); 
 //		}
+//		
+//		try
+//		{
+//			boolean flag=service.isCustomerAvailable(1);
+//			if(flag)
+//			{
+//				System.out.println("Customrt is Present");
+//			}
+//			else 
+//			{
+//				System.out.println("Customer is Not Present");
+//			}
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			System.out.println("Customer Count is =>> "+service.getCustomerCounnt());
+//			
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		try
 		{
-			boolean flag=service.isCustomerAvailable(1);
-			if(flag)
-			{
-				System.out.println("Customrt is Present");
-			}
-			else 
-			{
-				System.out.println("Customer is Not Present");
-			}
-		}catch (Exception e) {
+			Iterable<Customer> all=service.getAllCustomer();
+			System.out.println("All Customer are =");
+			all.forEach(a-> System.out.println(a));
+			
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 		

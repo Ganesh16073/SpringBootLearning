@@ -3,6 +3,7 @@ package com.main.service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,20 @@ public class CustomerManagementService implements ICustomerManagementService{
 	public Boolean isCustomerAvailable(Integer Id) {
 		
 		return customerRepository.existsById(Id); // check Available or not
+	}
+
+
+	@Override
+	public long getCustomerCounnt() {
+		long count=customerRepository.count();
+		return count;
+	}
+
+
+	@Override
+	public Iterable<Customer> getAllCustomer() {
+		Iterable<Customer> it=customerRepository.findAll();
+		return it;
 	}
 
 
