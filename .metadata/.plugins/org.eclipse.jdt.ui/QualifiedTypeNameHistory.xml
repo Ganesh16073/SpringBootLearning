@@ -39,4 +39,5 @@
     <fullyQualifiedTypeName name="jakarta.annotation.Nonnull"/>
     <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.main.entity.Customer"/>
 </qualifiedTypeNameHistroy>

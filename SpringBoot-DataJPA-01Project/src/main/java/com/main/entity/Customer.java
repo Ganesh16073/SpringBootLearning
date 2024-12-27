@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,8 @@ public class Customer {
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "gen1")
 	private Integer id;
+	
+//	@Transient usted to insert null valuse
 	@Nonnull
 	@Column(name="CUSTOMER_NAME", length=30)
 	private String name;

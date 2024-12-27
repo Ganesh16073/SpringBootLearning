@@ -102,6 +102,52 @@ public class CustomerManagementService implements ICustomerManagementService{
 		}
 		
 	}
+	@Override
+	public String registerOrUpdateCustumerDetails(Customer customer) {
+		Optional<Customer> op =customerRepository.findById(customer.getId());
+		
+		if(op.isPresent())
+		{
+			customerRepository.save(customer);
+			return customer.getId()+" Id Details are Updated";
+		}
+		else
+		{
+			Customer cust=customerRepository.save(customer);
+			return cust.getId()+"Custumer Is Registered";
+		}
+	}
+
+
+	@Override
+	public String removeCustumerById(int id) { 	
+		Optional<Customer> cust=customerRepository.findById(id);
+		if(cust.isPresent())
+		{
+			customerRepository.deleteById(id);
+			return id+" id Customer is Deleted";
+		}
+		else
+		{
+			return id+" Customer is not Found";
+		}
+		
+	}
+
+
+	@Override
+	public String removeCustumer(Customer cust) {
+		Optional<Customer> cu=customerRepository.findById(cust.getId());
+		if(cu.isPresent())
+		{
+			customerRepository.delete(cust);
+			return cust.getId()+" id Customer is Deleted";
+		}
+		else
+		{
+			return cust.getId()+" id Customer is Not Found and Deleted";
+		}
+	}
 
 	
 

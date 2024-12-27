@@ -113,16 +113,25 @@ public class TestRunner implements CommandLineRunner{
 //		}
 		
 		
+//		try
+//		{
+//			System.out.println("Upadating the customer");
+//			String resmessage=service.adjustCustomerBillAmount(1, 5);
+//			System.out.println(resmessage);
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+
 		try
 		{
-			System.out.println("Upadating the customer");
-			String resmessage=service.adjustCustomerBillAmount(1, 5);
-			System.out.println(resmessage);
+			String res=service.removeCustumerById(4);
+			System.out.println(res);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 }

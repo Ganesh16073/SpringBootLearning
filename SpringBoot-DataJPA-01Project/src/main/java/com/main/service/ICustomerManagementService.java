@@ -15,4 +15,7 @@ public interface ICustomerManagementService {
 	public Optional<Customer> getCustomerById(int id);
 	public Customer fetchCustomerById(Integer id);
 	public String adjustCustomerBillAmount(int id, double discountPercentage);
+	public String registerOrUpdateCustumerDetails(Customer customer);
+	public String removeCustumerById(int id);
+	public String removeCustumer(Customer cust);
 }
