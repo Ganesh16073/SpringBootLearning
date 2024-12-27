@@ -1,9 +1,7 @@
 package com.main.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +76,31 @@ public class CustomerManagementService implements ICustomerManagementService{
 	public Optional<Customer> getCustomerById(int id) {
 		Optional<Customer> cus=customerRepository.findById(id);
 		return cus;
+	}
+
+
+	@Override
+	public Customer fetchCustomerById(Integer id) {
+		return customerRepository.findById(id).orElse(new Customer(00,"XXX","YYY",0));
+	}
+
+
+	@Override
+	public String adjustCustomerBillAmount(int id, double discountPercentage) {
+		Optional<Customer> opt=customerRepository.findById(id);
+		if(opt.isPresent())
+		{
+			 Customer cus=opt.get();
+			 double discount=cus.getBillAmt()*(discountPercentage/100);
+			 cus.setBillAmt(cus.getBillAmt()-discount); 
+			 customerRepository.save(cus);
+			 return id+" Customer details Updated";
+		}
+		else
+		{
+			return id+" Customer details NOt Found";
+		}
+		
 	}
 
 	

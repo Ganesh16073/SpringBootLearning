@@ -85,23 +85,43 @@ public class TestRunner implements CommandLineRunner{
 //		}catch (Exception e) {
 //			// TODO: handle exception
 //		}
+//		try
+//		{
+//			System.out.println(" Customer by id ");
+//			Optional<Customer> li=service.getCustomerById(1);
+//			if(li.isPresent())
+//			{
+//				System.out.println("The Customer is "+li.get());
+//			}
+//			else
+//			{
+//				System.out.println("Not Valid Customer");
+//			}
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+//		try
+//		{
+//			System.out.println("geting Customer by id");
+//			Customer cus=service.fetchCustomerById(10);
+//			System.out.println(cus);
+//			
+//		}catch (Exception e) {
+//			e.addSuppressed(e);
+//		}
+		
+		
 		try
 		{
-			System.out.println(" Customer by id ");
-			Optional<Customer> li=service.getCustomerById(1);
-			if(li.isPresent())
-			{
-				System.out.println("The Customer is "+li.get());
-			}
-			else
-			{
-				System.out.println("Not Valid Customer");
-			}
+			System.out.println("Upadating the customer");
+			String resmessage=service.adjustCustomerBillAmount(1, 5);
+			System.out.println(resmessage);
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		
 	}
 

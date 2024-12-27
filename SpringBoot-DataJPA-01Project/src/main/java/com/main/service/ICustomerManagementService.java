@@ -13,4 +13,6 @@ public interface ICustomerManagementService {
 	public Iterable<Customer> getAllCustomer();
 	public Iterable<Customer> getCustomerByIds(Iterable<Integer> ids);
 	public Optional<Customer> getCustomerById(int id);
+	public Customer fetchCustomerById(Integer id);
+	public String adjustCustomerBillAmount(int id, double discountPercentage);
 }
