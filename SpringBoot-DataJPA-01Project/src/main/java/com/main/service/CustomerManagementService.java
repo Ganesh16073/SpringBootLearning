@@ -66,5 +66,12 @@ public class CustomerManagementService implements ICustomerManagementService{
 	}
 
 
+	@Override
+	public Iterable<Customer> getCustomerByIds(Iterable<Integer> ids) {
+		Iterable<Customer> li=customerRepository.findAllById(ids);
+		return li;
+	}
+
+
 
 }

@@ -65,15 +65,25 @@ public class TestRunner implements CommandLineRunner{
 //			e.printStackTrace();
 //		}
 		
+//		try
+//		{
+//			Iterable<Customer> all=service.getAllCustomer();
+//			System.out.println("All Customer are =");
+//			all.forEach(System.out::println);
+//			
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
 		try
 		{
-			Iterable<Customer> all=service.getAllCustomer();
-			System.out.println("All Customer are =");
-			all.forEach(a-> System.out.println(a));
+			System.out.println("All Customer by id ");
+			Iterable<Customer> li=service.getCustomerByIds(List.of(1,2,4));// if we pass null it give nullpointer exceptions
+			li.forEach(System.out::println);
 			
-		}
-		catch (Exception e) {
-			e.printStackTrace();
+		}catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		

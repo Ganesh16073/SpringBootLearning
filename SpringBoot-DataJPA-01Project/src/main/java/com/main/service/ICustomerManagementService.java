@@ -9,4 +9,5 @@ public interface ICustomerManagementService {
 	public Boolean isCustomerAvailable(Integer Id);
 	public long getCustomerCounnt();
 	public Iterable<Customer> getAllCustomer();
+	public Iterable<Customer> getCustomerByIds(Iterable<Integer> ids);
 }
