@@ -27,7 +27,7 @@ public class Customer {
 	@Column(name="CUSTOMER_ID",length=30)
 	@SequenceGenerator(name="gen1", sequenceName = "CNO_SEQ", initialValue = 1, allocationSize = 1)
 //	@GeneratedValue(strategy = GenerationType.AUTO)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "gen1")
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "gen1")
 	private Integer id;
 	
 //	@Transient usted to insert null valuse
