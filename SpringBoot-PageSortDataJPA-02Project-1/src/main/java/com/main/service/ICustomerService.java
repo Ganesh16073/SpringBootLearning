@@ -9,3 +9,4 @@ public interface ICustomerService {
 	public Iterable<Customer> getAllCustomers(boolean ascOrder,String ...properties);
 	public Page<Customer> getCustomerByPageNo(int pageNo,int pageSize);
 }
+ 
