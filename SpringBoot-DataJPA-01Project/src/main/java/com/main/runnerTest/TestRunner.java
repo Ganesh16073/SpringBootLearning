@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.main.entity.Customer;
 import com.main.service.ICustomerManagementService;
 
 @Component
@@ -17,16 +18,16 @@ public class TestRunner implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-//		Customer cust=new Customer();
-//		cust.setName("Akhi");
-//		cust.setCAdd("Pune");
-//		cust.setBillAmt(2000);
-//		String result=service.registerCustomer(cust);
-//		System.out.println(result);	
-//		if(result==null)
-//		{
-//			System.out.println("Some Error is there...............");
-//		}
+		Customer cust=new Customer();
+		cust.setName("Varun");
+		cust.setCAdd("Cochi");
+		cust.setBillAmt(4554);
+		String result=service.registerCustomer(cust);
+		System.out.println(result);	
+		if(result==null)
+		{
+			System.out.println("Some Error is there...............");
+		}
 		
 
 //		try

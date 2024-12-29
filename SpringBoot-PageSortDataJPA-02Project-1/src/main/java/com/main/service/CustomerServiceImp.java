@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.main.entity.Customer;
@@ -31,6 +32,24 @@ public class CustomerServiceImp implements ICustomerService{
 		//Get Requested Page Details
 		Page<Customer> page=cusRepo.findAll(pageable);
 		return page;
+	}
+
+	@Override
+	public Page<Customer> getSortedCustomerByPage(int pageNo, int pageSize, boolean order, String... properties) {
+	
+	Sort sort=Sort.by(order?Direction.ASC:Direction.DESC,properties);
+	Pageable pageable=PageRequest.of(pageNo, pageSize,sort);
+	
+	
+	Page<Customer> page=cusRepo.findAll(pageable);
+	
+			
+		return page;
+	}
+
+	@Override
+	public void showCustomersPageByPage(int pageSize) {
+//		int count=cusRepo.count();
 	}
 
 }
