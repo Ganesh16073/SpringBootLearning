@@ -26,4 +26,10 @@ public class CustomerServiceImp implements ICustomerService{
 		return "No Customer was Found";
 	}
 
+	@Override
+	public Customer getCustomerById(int id) {
+		Customer cus=custRepo.getReferenceById(id); // if id not found then it throws exception. do not use
+		return cus;
+	}
+
 }
