@@ -13,6 +13,7 @@ public class PandSRepoRunner implements CommandLineRunner{
 
 	@Autowired
 	ICustomerService service;
+
 	
 //	@Override // for Sorting
 //	public void run(String... args) throws Exception {
@@ -35,11 +36,17 @@ public class PandSRepoRunner implements CommandLineRunner{
 //		System.out.println("Is the Requested Page is Last page "+page.isLast());
 //		
 //	}
+//	@Override
+//	public void run(String... args) throws Exception {
+//		
+//		Page<Customer> page=service.getSortedCustomerByPage(0, 3, true, "billAmt");
+//		page.getContent().forEach(System.out::println);
+//	}
+	
 	@Override
 	public void run(String... args) throws Exception {
+		service.showCustomersPageByPage(3);
 		
-		Page<Customer> page=service.getSortedCustomerByPage(0, 3, true, "billAmt");
-		page.getContent().forEach(System.out::println);
 	}
 
 }

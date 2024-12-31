@@ -42,14 +42,24 @@ public class CustomerServiceImp implements ICustomerService{
 	
 	
 	Page<Customer> page=cusRepo.findAll(pageable);
-	
-			
+		
 		return page;
 	}
 
 	@Override
 	public void showCustomersPageByPage(int pageSize) {
-//		int count=cusRepo.count();
+		 long count=cusRepo.count();
+		 long pageCount=count/pageSize;
+		 pageCount=(count%pageSize==0)?pageCount:pageCount++;
+		 
+		 for(int i=0;i<=pageCount;i++)
+		 {
+			 Pageable pageable=PageRequest.of(i, pageSize);
+			 Page<Customer> page=cusRepo.findAll(pageable);
+			 page.forEach(System.out::println);
+			 System.out.println("---------"+(page.getNumber()+1)+"/"+page.getTotalPages()+"--------");
+		 }
+				 
 	}
 
 }
