@@ -8,7 +8,7 @@ import com.main.entity.Person;
 public interface IPersonService {
 	
 	public String registerPerson(Person person);
-//	public String registerPersonGroup(Iterable<Person> list);
+	public String registerPersonGroup(Iterable<Person> list);
 //	public Boolean isPersonAvailable(Integer id);
 //	public long getPersonCount();
 //	public Iterable<Person> getAllPerson();
