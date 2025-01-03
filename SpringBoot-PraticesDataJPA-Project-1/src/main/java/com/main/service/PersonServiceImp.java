@@ -1,6 +1,6 @@
 package com.main.service;
 
-import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +44,74 @@ public class PersonServiceImp implements IPersonService{
 			System.out.println();
 			return "The Person List is Empty";
 		}
+	}
+	@Override
+	public Boolean isPersonAvailable(Integer id) {
+		try
+		{
+			return prepo.existsById(id);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	@Override
+	public long getPersonCount() {
+		try
+		{
+			long count=prepo.count();
+			return count;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	@Override
+	public Iterable<Person> getAllPerson() {
+		try
+		{
+			Iterable<Person> list=prepo.findAll();
+			return list;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	@Override
+	public Iterable<Person> getPersonsById(Iterable<Integer> ids) {
+			
+		try
+		{
+			Iterable<Person> list=prepo.findAllById(ids);
+			return list;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+	@Override
+	public Optional<Person> getPersonById(int id) {
+		try
+		{
+			Optional<Person> person=prepo.findById(id);
+			return person;
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Optional.empty();
+	}
+	@Override
+	public Person getPersonByIdDefault(int id) {
+		try
+		{
+			Person per=prepo.findById(id).orElse(new Person(0,"XYZ","ABC",0d));
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

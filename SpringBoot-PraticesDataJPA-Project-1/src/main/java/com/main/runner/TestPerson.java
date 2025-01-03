@@ -2,6 +2,7 @@ package com.main.runner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +62,121 @@ public class TestPerson implements CommandLineRunner{
 					}
 					break;
 					
+				case 3:
+					try
+					{
+						System.out.println("Enter the Id TO Search the Person is Available or not");
+						int id=sc.nextInt();
+						boolean b=personService.isPersonAvailable(id);
+						if(b)
+						{
+							System.out.println(id+"=> The id Person Is Presenet in In Database");
+						}
+						else
+						{
+							System.out.println(id+"=> The id Person is Not Avaliable in Database");
+						}
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 4:
+					try
+					{
+						long count=personService.getPersonCount();
+						if(count!=-1)
+						{
+							System.out.println("The Person count is => "+count);
+						}
+						else
+						{
+							System.out.println("There is No Person Avaliable in Database");
+						}
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 5:
+					try
+					{
+						Iterable<Person> list=personService.getAllPerson();
+						System.out.println("The Person List is =>");
+						list.forEach(System.out::println);
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 6:
+					try
+					{
+						System.out.println("Enter the Id to Search Person");
+						List<Integer> id=new ArrayList<>();
+						boolean enterId=true;
+						while(enterId)
+						{
+							var fid=sc.nextInt();
+							id.add(fid);
+							System.out.println("Want to add another id to Search enter=>> Y : N");
+							char ch=sc.next().charAt(0);
+							if(ch=='n' || ch=='N')
+							{
+								enterId=false;
+							}
+						}
+						
+						Iterable<Person> list=personService.getPersonsById(id);
+						if(list!=null)
+						{
+							System.out.println("The Person List Is");
+							list.forEach(System.out::println);
+						}
+						else
+						{
+							System.out.println("There is no Person in this Ids +"+id.toString());
+						}
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 7:
+					try
+					{
+						System.out.println("Enter the Person Id to Find ::");
+						int id=sc.nextInt();
+						Optional<Person> per=personService.getPersonById(id);
+						if(per.isPresent())
+						{
+							System.out.println("The Person with id "+id+" Details are =>");
+							System.out.println(per.get());
+						}
+						else
+						{
+							System.out.println("There Is No Person Avaliable in Database with id "+id);
+						}
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+				
+				case 8:
+					try
+					{
+						System.out.println("Enter the Person Id to Find Person or get Default person Details");
+						int id=sc.nextInt();
+						Person p=personService.getPersonByIdDefault(id);
+						System.out.println("The Person Details Are "+p);
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
 				case 13:
 					System.out.println();
 					System.out.println("--------------- Exited ---------------");
