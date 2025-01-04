@@ -177,6 +177,63 @@ public class TestPerson implements CommandLineRunner{
 						e.printStackTrace();
 					}
 					break;
+				case 9:
+					try
+					{
+						System.out.println("Enter the Person id to update Salary");
+						int id=sc.nextInt();
+						System.out.println("Enter the New Salary to Update");
+						double newSal=sc.nextDouble();
+						String resMess=personService.updatePersonSalaryById(id, newSal);
+						System.out.println(resMess);
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+				case 10:
+					try
+					{
+						System.out.println("Enter the Person data to Update");
+						Person p=new Person();
+						p.setPId(sc.nextInt());
+						p.setPName(sc.next());
+						p.setPAddress(sc.next());
+						p.setPSalary(sc.nextDouble());
+						String message=personService.registerOrUpdatePerson(p);
+						System.out.println(message);
+						
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 11:
+					try
+					{
+						System.out.println("Enter the Person id to delete");
+						int id =sc.nextInt();
+						String mess=personService.removePersonById(id);
+						System.out.println(mess);
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 12:
+					try
+					{
+						System.out.println("Enter the Person Person Details delete");
+						Person p=new Person();
+						p.setPId(sc.nextInt());
+						
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
 				case 13:
 					System.out.println();
 					System.out.println("--------------- Exited ---------------");

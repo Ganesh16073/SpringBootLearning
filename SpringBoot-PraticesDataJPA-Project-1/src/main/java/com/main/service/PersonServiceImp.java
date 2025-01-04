@@ -113,5 +113,52 @@ public class PersonServiceImp implements IPersonService{
 		}
 		return null;
 	}
+	@Override
+	public String updatePersonSalaryById(int id, double newSalary) {
+		
+		Optional<Person> per=prepo.findById(id);
+		if(per.isPresent())
+		{
+			Person p=per.get();
+			p.setPSalary(newSalary);
+			prepo.save(p);
+			return p.getPId()+"Person Salary Is Updated";
+		}
+		else
+		{
+			return "Person data is Not found in database List with id"+id;
+		}
+		
+	}
+	@Override
+	public String registerOrUpdatePerson(Person person) {
+		Optional<Person> per=prepo.findById(person.getPId());
+		if(per.isPresent())
+		{
+			prepo.save(person);
+			return per.get().getPId()+" : ids Person data is updated";
+		}
+		return person.getPId()+": ids Person Not found";
+	}
+	@Override
+	public String removePersonById(int id) {
+		Optional<Person> per=prepo.findById(id);
+		if(per.isPresent())
+		{
+			prepo.deleteById(id);
+			return id+" : id person is Deleted";
+		}
+		return id+" : id Person was not Found";
+	}
+	@Override
+	public String removePerson(Person person) {
+		Optional<Person> per=prepo.findById(person.getPId());
+		if(per.isPresent())
+		{
+			prepo.delete(person);
+			return person.getPId()+" : id person is Deleted";
+		}
+		return person.getPId()+" : id Person was not Found";
+	}
 
 }

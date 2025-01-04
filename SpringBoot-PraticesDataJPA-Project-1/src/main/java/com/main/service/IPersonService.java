@@ -15,10 +15,10 @@ public interface IPersonService {
 	public Iterable<Person> getPersonsById(Iterable<Integer> ids);
 	public Optional<Person> getPersonById(int id);
 	public Person getPersonByIdDefault(int id);
-//	public String updatePersonSalaryById(int id, double newSalary);
-//	public String registerOrUpdatePerson(Person person);
-//	public String removePersonById(int id);
-//	public String removePerson(Person person);
+	public String updatePersonSalaryById(int id, double newSalary);
+	public String registerOrUpdatePerson(Person person);
+	public String removePersonById(int id);
+	public String removePerson(Person person);
 //	public String deleteAllPersonById(List<Integer> id);
 //	public String deleteAllPersons();
 
