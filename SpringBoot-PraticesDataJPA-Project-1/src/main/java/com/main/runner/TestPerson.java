@@ -27,7 +27,7 @@ public class TestPerson implements CommandLineRunner{
 			System.out.println("Enter the Choice");
 			System.out.println("1: Add New Person");
 			System.out.println("2: Add Group of Person");
-			System.out.println("13: Exit");
+			System.out.println("15: Exit");
 			int choice=sc.nextInt();
 			switch(choice)
 			{
@@ -227,7 +227,8 @@ public class TestPerson implements CommandLineRunner{
 						System.out.println("Enter the Person Person Details delete");
 						Person p=new Person();
 						p.setPId(sc.nextInt());
-						
+						String mesg=personService.removePersonById(choice);
+						System.out.println(mesg);
 						
 					}catch (Exception e) {
 						e.printStackTrace();
@@ -235,6 +236,40 @@ public class TestPerson implements CommandLineRunner{
 					break;
 					
 				case 13:
+					try
+					{
+						List<Integer> list=new ArrayList<>();
+						boolean check=true;
+						System.out.println("Enter the ids to delete");
+						while(check)
+						{
+							list.add(sc.nextInt());
+							System.out.println("Want to delete more Person with id :: Enter 'Y' Or 'N' ");
+							char ch=sc.next().charAt(0);
+							if(ch=='n'|| ch=='N')
+							{
+								check=false;
+							}
+						}
+						String mesg=personService.deleteAllPersonById(list);
+						System.out.println(mesg);
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 14:
+					try
+					{
+						System.out.println(personService.deleteAllPersons());
+						
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					break;
+					
+				case 15:
 					System.out.println();
 					System.out.println("--------------- Exited ---------------");
 					System.out.println();

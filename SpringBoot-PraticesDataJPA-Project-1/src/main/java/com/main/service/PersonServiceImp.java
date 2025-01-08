@@ -1,5 +1,6 @@
 package com.main.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -160,5 +161,24 @@ public class PersonServiceImp implements IPersonService{
 		}
 		return person.getPId()+" : id Person was not Found";
 	}
+	@Override
+	public String deleteAllPersonById(List<Integer> id) {
+		
+		List<Person> pre=(List<Person>) prepo.findAllById(id);
+		if(pre.size()==id.size())
+		{
+			prepo.deleteAllById(id);
+			return "Person are deleted by ids : "+id.toString();
+		}
+		return "Person are not deleted by ids : "+id.toString();
+	}
+	@Override
+	public String deleteAllPersons() {
+		
+		prepo.deleteAll();
+		return "All Person Are Deleted";
+	}
+	
+	
 
 }

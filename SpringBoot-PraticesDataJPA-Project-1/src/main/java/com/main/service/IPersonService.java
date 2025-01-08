@@ -19,7 +19,7 @@ public interface IPersonService {
 	public String registerOrUpdatePerson(Person person);
 	public String removePersonById(int id);
 	public String removePerson(Person person);
-//	public String deleteAllPersonById(List<Integer> id);
-//	public String deleteAllPersons();
+	public String deleteAllPersonById(List<Integer> id);
+	public String deleteAllPersons();
 
 }

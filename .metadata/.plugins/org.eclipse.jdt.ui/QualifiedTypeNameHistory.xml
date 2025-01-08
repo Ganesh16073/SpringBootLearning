@@ -47,7 +47,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="jakarta.persistence.SequenceGenerator"/>
     <fullyQualifiedTypeName name="com.main.service.IPersonService"/>
-    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
     <fullyQualifiedTypeName name="org.antlr.v4.runtime.misc.NotNull"/>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
@@ -55,9 +54,10 @@
     <fullyQualifiedTypeName name="org.springframework.data.domain.Example"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort.Order"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort.Direction"/>
-    <fullyQualifiedTypeName name="com.main.repository.ICustomerRepository"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.main.entity.Person"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="com.main.repository.ICustomerRepository"/>
 </qualifiedTypeNameHistroy>
