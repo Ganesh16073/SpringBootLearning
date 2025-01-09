@@ -44,6 +44,7 @@ public class TestPerson implements CommandLineRunner{
 			System.out.println("|  15: Exit                                                   |");
 			System.out.println("--------------------------------------------------------------|");
 			System.out.println();
+			System.out.println("Enter the Choice : ");
 			int choice=sc.nextInt();
 			switch(choice)
 			{
