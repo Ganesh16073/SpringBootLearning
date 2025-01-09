@@ -1,6 +1,7 @@
 package com.main.model;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,19 +11,24 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name="language")
-public class Language {
+@Data
+@Table(name="admin")
+@NoArgsConstructor
+@AllArgsConstructor
+public class Admin {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "language_seq")
-    @SequenceGenerator(name = "language_seq", sequenceName = "language_sequence", allocationSize = 1)
-	private Integer languageId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_seq")
+    @SequenceGenerator(name = "admin_seq", sequenceName = "admin_sequence", allocationSize = 1)
+	@Column(name = "admin_id")
+	private Integer adimnId;
 	@Nonnull
-	private String languageName;
+	private String userName;
+	@Nonnull
+	private String password;
+	
+	
 
 }

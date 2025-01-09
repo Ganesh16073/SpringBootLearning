@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +16,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 
 @Data
@@ -27,7 +27,8 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movie_seq")
-    @SequenceGenerator(name = "movie_seq", sequenceName = "movie_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "movie_seq", sequenceName = "movie_sequence", initialValue = 1, allocationSize = 1)
+//	@Column(name = "movie_id")
 	private Integer movieId;
 	@Nonnull
 	private String title;
@@ -39,7 +40,7 @@ public class Movie {
 	@JoinColumn(name = "language_id", referencedColumnName = "languageId")
 	private Language language;
 	@ManyToOne
-	@JoinColumn(name = "genres_id", referencedColumnName = "genresId1")
+	@JoinColumn(name = "genres_id", referencedColumnName = "genresId")
 	private Genres genres;
 	@Nonnull
 	private LocalDate releaseDate;

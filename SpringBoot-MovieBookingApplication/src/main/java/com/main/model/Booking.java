@@ -3,6 +3,7 @@ package com.main.model;
 import java.util.Date;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,16 +26,19 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "booking_seq")
     @SequenceGenerator(name = "booking_seq", sequenceName = "booking_sequence", allocationSize = 1)
-	private Integer bookinId;
+	@Column(name = "booking_id")
+	private Integer bookingId;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "userId")
 	private User user;
+	
 	@ManyToOne
 	@JoinColumn(name = "showtime_id", referencedColumnName = "showtimeId")
 	private Showtime showtime;
+	
 	@ManyToOne
-	@JoinColumn(name = "seats_id", referencedColumnName = "seatsId")
+	@JoinColumn(name = "seatsId", referencedColumnName = "seatsId")
 	private Seats seats;
 	
 	@Nonnull

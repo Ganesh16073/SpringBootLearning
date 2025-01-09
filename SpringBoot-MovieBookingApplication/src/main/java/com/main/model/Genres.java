@@ -21,7 +21,7 @@ public class Genres {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "genres_seq")
-    @SequenceGenerator(name = "genres_seq", sequenceName = "genres_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "genres_seq", sequenceName = "genres_sequence", initialValue = 1, allocationSize = 1)
 	private Integer genresId;
 	@Nonnull
 	private String genresName;

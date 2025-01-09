@@ -1,6 +1,7 @@
 package com.main.model;
 
 import jakarta.annotation.Nonnull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +23,9 @@ public class Showtime {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "showtime_seq")
-    @SequenceGenerator(name = "showtime_seq", sequenceName = "showtime_sequence", allocationSize = 1)
-	private Integer cinemaId;
+    @SequenceGenerator(name = "showtime_seq", sequenceName = "showtime_sequence", initialValue = 1, allocationSize = 1)
+//	@Column(name="showtime_Id")
+	private Integer showtimeId;
 	@Nonnull
 	private String name;
 	@Nonnull
