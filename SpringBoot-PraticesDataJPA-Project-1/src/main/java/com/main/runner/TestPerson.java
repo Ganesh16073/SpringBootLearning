@@ -24,10 +24,26 @@ public class TestPerson implements CommandLineRunner{
 		while(exit)
 		{
 			Scanner sc=new Scanner(System.in);
-			System.out.println("Enter the Choice");
-			System.out.println("1: Add New Person");
-			System.out.println("2: Add Group of Person");
-			System.out.println("15: Exit");
+			System.out.println();
+			System.out.println("-------------------------------------------------------------");
+			System.out.println("|<<<<<<<<<<<<<<<<<<<<<<<< Enter the Choice>>>>>>>>>>>>>>>>>>>>|");
+			System.out.println("|  1: Add New Person                                          |");
+			System.out.println("|  2: Add Group of Person                                     |");
+			System.out.println("|  3: Check is PersonAvailable By id                          |");
+			System.out.println("|  4: get Person Count                                        |");
+			System.out.println("|  5: get All Person From database                            |");
+			System.out.println("|  6: get multiple Persons By Id                              |");
+			System.out.println("|  7: get a Person By Id                                      |");
+			System.out.println("|  8: get a Person By Id or get Default Person                |");
+			System.out.println("|  9: update Person Salary By Id                              |");
+			System.out.println("|  10: register Person Or Update Person if already exist      |");
+			System.out.println("|  11: remove a Person By Id                                  |");
+			System.out.println("|  12: remove Person by pasing an person all data             |");
+			System.out.println("|  13: delete All Person By Ids                               |");
+			System.out.println("|  14: delete All the Persons                                 |");
+			System.out.println("|  15: Exit                                                   |");
+			System.out.println("--------------------------------------------------------------|");
+			System.out.println();
 			int choice=sc.nextInt();
 			switch(choice)
 			{
