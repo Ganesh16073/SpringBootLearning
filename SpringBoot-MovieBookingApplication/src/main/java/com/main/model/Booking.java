@@ -25,21 +25,16 @@ public class Booking {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "booking_seq")
-    @SequenceGenerator(name = "booking_seq", sequenceName = "booking_sequence", allocationSize = 1)
-	@Column(name = "booking_id")
+    @SequenceGenerator(name = "booking_seq", sequenceName = "booking_sequence",initialValue = 1, allocationSize = 1)
 	private Integer bookingId;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "userId")
+	@JoinColumn(name = "user_id") 
 	private User user;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "showtime_id", referencedColumnName = "showtimeId")
-	private Showtime showtime;
-	
-	@ManyToOne
-	@JoinColumn(name = "seatsId", referencedColumnName = "seatsId")
-	private Seats seats;
+	@JoinColumn(name="movie_cinema_showtime_join",referencedColumnName = "moviecinemashowtimejoinId")
+	private MovieCinemaShowtimeJoin movieCinemaShowtimeJoin;
 	
 	@Nonnull
 	private Date bookingDate;

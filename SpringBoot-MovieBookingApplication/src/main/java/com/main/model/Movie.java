@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -37,11 +38,15 @@ public class Movie {
 	@Nonnull
 	private LocalTime duration;
 	@ManyToOne
-	@JoinColumn(name = "language_id", referencedColumnName = "languageId")
-	private Language language;
-	@ManyToOne
-	@JoinColumn(name = "genres_id", referencedColumnName = "genresId")
-	private Genres genres;
+	@JoinColumn(name = "lgj_id", referencedColumnName = "lgjId")
+	private LangAndGenreJoin langAndGenreJoin;
+	
 	@Nonnull
 	private LocalDate releaseDate;
+	
+	@Nonnull
+	private String discription;
+	
+	@Lob
+	private byte[] poster;
 }

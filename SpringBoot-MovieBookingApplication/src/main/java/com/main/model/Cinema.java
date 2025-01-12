@@ -32,9 +32,4 @@ public class Cinema {
 	private String location;
 	@Nonnull
 	private String contact;
-	
-	@ManyToOne
-	@JoinColumn(name = "movie_id", referencedColumnName = "movieId", nullable = false)	
-	private Movie movie;
-
 }

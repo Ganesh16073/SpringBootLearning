@@ -33,11 +33,6 @@ public class Showtime {
 	@Nonnull
 	private String contact;
 	
-	@ManyToOne
-	@JoinColumn(name = "movie_id", referencedColumnName = "movieId", nullable = false)	
-	private Movie movie;
-
-	@ManyToOne
-	@JoinColumn(name="Cinema_id",referencedColumnName="cinemaId", nullable=false)
-	private Cinema cinema;
+	
+	
 }
