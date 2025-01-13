@@ -1,5 +1,7 @@
 package com.main.model;
 
+import java.util.List;
+
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -20,26 +24,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Feedback {
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedback_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feedback_seq")
     @SequenceGenerator(name = "feedback_seq", sequenceName = "feedback_sequence", allocationSize = 1)
-	@Column(name="feedback_id")
-	private Integer feedbackId;
-	@ManyToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "userId",nullable = false)
-	private User user;
-	
-	@ManyToOne
-	@JoinColumn(name = "movie_id", referencedColumnName = "movieId", nullable = false)
-	private Movie movie;
-	
-	@Nonnull
-	private String feedBack_text;
-	
-	@Nonnull
-	private Integer rating;
-	
+    @Column(name = "feedback_id")
+    private Integer feedbackId;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)
+    private User user;
+
+    @Nonnull
+    private String feedBack_text;
+
+    @Nonnull
+    private Integer rating;
 	
 
 }
