@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.main.controller.PayrollOperationController"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="lombok.EqualsAndHashCode"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
@@ -49,7 +47,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
     <fullyQualifiedTypeName name="com.main.model.MovieCinemaShowtimeJoin"/>
     <fullyQualifiedTypeName name="jakarta.persistence.FetchType"/>
-    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
     <fullyQualifiedTypeName name="com.main.service.ILanguageService"/>
     <fullyQualifiedTypeName name="com.main.persistence.ILanguageRepository"/>
     <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
@@ -59,5 +56,8 @@
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+    <fullyQualifiedTypeName name="com.main.service.IGenresService"/>
+    <fullyQualifiedTypeName name="com.main.persistence.IGenresRepository"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
 </qualifiedTypeNameHistroy>
