@@ -1,5 +1,7 @@
 package com.main.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 import com.main.model.Movie;
@@ -14,5 +16,12 @@ public interface IMovieService {
 	public Movie getMovieByIdOrGetDefaultMovie(Integer id)throws Exception;
 	public String updateMovieNameById(Integer id,String name)throws Exception;
 	public String removeMovieById(Integer id)throws Exception;
+	public String updateMovieGenreById(Integer id,String Genren)throws Exception;
+	public String updateMovieDuriationById(Integer id,LocalTime time)throws Exception;
+	public String updateMovieDateById(Integer id,LocalDate data)throws Exception;
+	public String updateMovieDiscriptionById(Integer id,String Discription)throws Exception;
+	public String updateMoviePosternById(Integer id,String path)throws Exception;
+
+
 
 }

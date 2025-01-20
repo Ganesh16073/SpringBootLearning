@@ -1,5 +1,7 @@
 package com.main.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -138,7 +140,7 @@ public class MovieServiceImp implements IMovieService{
 				return mo.getMovieId()+"Movie Title is updated";
 				
 			}else {
-				return m.get().getMovieId()+"Movie Title is not found";
+				return id+"Movie Title is not found";
 			}	
 		}catch (Exception e) {
 			throw e;
@@ -163,4 +165,97 @@ public class MovieServiceImp implements IMovieService{
 		}
 	}
 
+	public String updateMovieGenreById(Integer id,String Genren)throws Exception
+	{
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setGenre(Genren);
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Genres is updated";
+				
+			}else {
+				return id+"Movie Genres is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
+		
+	}
+
+	public String updateMovieDuriationById(Integer id,LocalTime time)throws Exception
+	{
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setDuration(time);
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Duration is updated";
+				
+			}else {
+				return "Movie with ID " + id + " is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
+	}
+	public String updateMovieDateById(Integer id,LocalDate data)throws Exception
+	{
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setReleaseDate(data);;
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Date is updated";
+				
+			}else {
+				return "Movie with ID " + id + " is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
+	}
+	public String updateMovieDiscriptionById(Integer id,String Discription)throws Exception
+	{
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setDiscription(Discription);
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Discription is updated";
+				
+			}else {
+				return "Movie with ID " + id + " is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
+	}
+
+	public String updateMoviePosternById(Integer id,String path)throws Exception
+	{
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setPoster(path);
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Path is updated";
+				
+			}else {
+				return "Movie with ID " + id + " is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
+	}
 }
