@@ -12,7 +12,7 @@ public interface IMovieService {
 	public Iterable<Movie> getMovieByIds(Iterable<Integer> ids)throws Exception;
 	public Optional<Movie> getMovieById(Integer id)throws Exception;
 	public Movie getMovieByIdOrGetDefaultMovie(Integer id)throws Exception;
-	public String updateMovieById(Integer id)throws Exception;
+	public String updateMovieNameById(Integer id,String name)throws Exception;
 	public String removeMovieById(Integer id)throws Exception;
 
 }

@@ -127,15 +127,40 @@ public class MovieServiceImp implements IMovieService{
 	}
 
 	@Override
-	public String updateMovieById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateMovieNameById(Integer id, String name) throws Exception {
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				m.get().setTitle(name);
+				Movie mo=mrepo.save(m.get());
+				return mo.getMovieId()+"Movie Title is updated";
+				
+			}else {
+				return m.get().getMovieId()+"Movie Title is not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
 	}
 
 	@Override
 	public String removeMovieById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		try
+		{
+			Optional<Movie> m=mrepo.findById(id);
+			if(m.isPresent())
+			{
+				mrepo.deleteById(id);
+				return id+":: id Movie is Deleted";
+				
+			}else {
+				return id+":: id Movie is Not found";
+			}	
+		}catch (Exception e) {
+			throw e;
+		}
 	}
 
 }
