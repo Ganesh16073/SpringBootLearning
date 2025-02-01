@@ -21,7 +21,7 @@ public interface IMovieService {
 	public String updateMovieDateById(Integer id,LocalDate data)throws Exception;
 	public String updateMovieDiscriptionById(Integer id,String Discription)throws Exception;
 	public String updateMoviePosternById(Integer id,String path)throws Exception;
-
+	
 
 
 }
